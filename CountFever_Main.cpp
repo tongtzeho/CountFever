@@ -1,5 +1,4 @@
-//×÷Õß£º±±¾©´óÑ§ĞÅÏ¢¿ÆÑ§¼¼ÊõÑ§Ôº ÌÆ×ÓºÀ
-//±àÒë»·¾³£ºMicrosoft Visual C++ 6.0
+//ç¼–è¯‘ç¯å¢ƒï¼šMicrosoft Visual C++ 6.0
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
@@ -21,7 +20,7 @@ using namespace std;
 
 struct countfeverexpressiondata
 {
-	int id,cla;  //cla: 1Êı×Ö 2Ë«Ä¿ 3ºóÖÃ 4Õı¸ººÅ 5×óÀ¨ºÅ 6ÓÒÀ¨ºÅ 7¶ººÅ 8ÇóºÍ±äÁ¿ 9X 10Y 11Z 12W 13Ç°ÖÃ 14±È½Ï 15? 16¾ØÕó/ÏòÁ¿/¸´Êı 17ÈÕÆÚ
+	int id,cla;  //cla: 1æ•°å­— 2åŒç›® 3åç½® 4æ­£è´Ÿå· 5å·¦æ‹¬å· 6å³æ‹¬å· 7é€—å· 8æ±‚å’Œå˜é‡ 9X 10Y 11Z 12W 13å‰ç½® 14æ¯”è¾ƒ 15? 16çŸ©é˜µ/å‘é‡/å¤æ•° 17æ—¥æœŸ
 	int ope;  //ope: 1+ 2- 3* 4/ 5^ 6div 7mod 8! 9+ 10- 11( 12ln( 13abs( 14) 15sq( sqrt( 16sin( 17cos( 18tan( 19lg( 20exp( 21ctg( 22asin( 23acos( 24atan( 25sh( 26ch( 27th( 28log( , 29C( 30P( 31gcd( 32lcm( 33, 34[ 35{ 36ran( 37sum(k= 38pro(k= 39I( 40% 41@ 42# 43max( 44min( 45& 46| 47xor 48_ 49< 50> 51== 52<= 53>= 54<> 55sec( 56csc( 57ash 58ach 59ath 60? 61dX) 62dY) 63dZ) 64dW) 65f( 66g( 67h( 68F( 69G( 70H( 71fib( 72sgn( 73root( 74dis( 75b& 76b| 77b^ 78~ 79<< 80>> 81rnd( 82gpa( 83actg( 84sum( 85sum2( 86on( 87on-1( 88avg( 89mid( 90n( 91avg2( 92ga( 93ha( 94pro( 95xnor 96diff( 97det( 98M( 99; 100: 101' 102" 103` 104rank( 105diag( 106tr( 107$ 108dr 109dc 110size( 111gr 112gc 113a( arg( 114re( 115im( 116sumabs( 117solve( 118floor( 119ceil( 120c( 121\ 122r( 123up( 124down( 125q 126codrp( 127sumxy( 128fc( 129A[
 	int fac,r,c; //year month day
 	double num,*mat;
@@ -55,52 +54,52 @@ bool funmode,ondisplay,ordinfunmode,matherror,syntaxerror,solvemode,solve1stnum,
 double solvelist[500]={0},randomnumlist[100]={0},*mempoint[27],codoy;
 char input[5000],memexpinput[51][5000],ordinfun[7][5000],memstr[10][5000];
 /*----------------------------------------------------------------------------------------------------------*/
-void initializeandreadmemory(); //³õÊ¼»¯´°¿Ú²¢´Ó³ÌĞòÄ¿Â¼¶ÁÈ¡´æ´¢Êı¾İ
-void inputexpression(); //ÊäÈë±í´ïÊ½
-void randominitialize(); //Ëæ»ú³õÊ¼»¯randomnumlist
-void uppervar(); //½«±í´ïÊ½µÄx,y,z,w±ä³É´óĞ´
-void clear(); //½«ËùÓĞ´æ´¢Êı¾İÇåÁã
-void showmemory(); //½«ËùÓĞ´æ´¢Êı¾İÁĞ¾Ù³öÀ´
-void dealstring(); //ÌáÈ¡±í´ïÊ½ÖĞµÄSTRx×Ö´®
-bool solveon(); //ÅĞ¶ÏÊÇ·ñÆô¶¯½â·½³ÌÄ£Ê½
-void translate(); //·­Òë±í´ïÊ½£¬·­Òë½á¹û´æÔÚ½á¹¹ÌåÊı×édataÖĞ
-void addrightbrac(); //½«×óÀ¨ºÅºÍÓÒÀ¨ºÅµÄÊıÄ¿ÅäÆ½
-void debugoutput(); //µ÷ÊÔ³ÌĞòÊ±µÄÊä³ö
-int searchbrac(); //Ñ°ÕÒ×óÀ¨ºÅºÍÆ¥ÅäÓÒÀ¨ºÅ
-void calcexpression(const int x,const int z); //ÇóºÍ¡¢Çó»ı¡¢¼ÆËãÊıÖµÎ¢»ı·Ö
-int maincalc(); //×ÜÒıÇæ£ºÃ¿Ò»´Î¼ÆËãÏÈÕÒ×óÓÒÀ¨ºÅ£¬ÔÙ¸ù¾İÇé¿öµ÷ÓÃ¾ßÌå¼ÆËãµÄº¯Êı£¬Ö±µ½Ö»Ê£Ò»¸öÊı
-void calculate(const int x,const int y,const int z); //ÔÚ×óÓÒÀ¨ºÅ¼ä¼ÆËã(zÎªÓÅÏÈ¼¶)
-void tranfunvar(const int x,const int y); //Æô¶¯º¯ÊıÄ£Ê½Ê±½«º¯Êı±äÁ¿±ä³É¾ßÌåÊıÖµ
-void calcvector(const int x,const int y); //Éú³É²¢¼ÆËã¼¯ºÏ/ÏòÁ¿/Êı×éµÈ£¨×îÖµ¡¢×î´ó¹«Ô¼Êı¡¢×îĞ¡¹«±¶Êı¡¢ÇóºÍ¡¢ÇóÆ½¾ùÊı¡¢ÇóÖĞÎ»Êı¡¢Çó±ê×¼²îµÈ£©
-void calcmatrix(const int x,const int y); //×ª»»³É¾ØÕóÀàĞÍ
-void calcdiag(const int x,const int y); //×ª»»Îª¶Ô½Ç¾ØÕó
-void detcm(const int x,const int n,const double number[ ]); //¼ÆËã¸´ÏµÊı·½ÕóµÄĞĞÁĞÊ½
-void createcomplex(const int x,const double a,const double b); //Éú³É¸´Êı
-inline void matherr(const int x); //³ö´íÊ±µÄ¿ìËÙ´¦Àí
-void transpose(const int x); //¾ØÕó×ªÖÃ
-void adjmat(const int x); //Çó°éËæ¾ØÕó
-void invmat(const int x); //ÇóÄæ¾ØÕó
-inline void oneomatrix(const int x); //½«Ò»½×¾ØÕó±ä³ÉÊı
-void calcordinfun(const int x,const int y); //¼ÆËã×Ô¶¨Òåº¯Êı
-void funvarnext(); //º¯ÊıÄ£Ê½Ê±½«º¯ÊıÖµ±ä³ÉÏÂÒ»¸ö
-void fundatacopy(const double f,const int z); //º¯ÊıÄ£Ê½Ê±¼ÆËã×îÖµ
-bool funend(); //º¯ÊıÄ£Ê½Ê±ÅĞ¶ÏÊÇ·ñ½áÊø
-bool include(const int x,const int z); //ÅĞ¶ÏÄ³ÖÖÔËËã·ûºÅÊÇ·ñ·ûºÏÓÅÏÈ¼¶
-void countmatrix(const int x,const int y,const int z); //¶Ô¾ØÕó¡¢¸´ÊıÔËËãÊµĞĞ¼ÆËã
-void complexpower(const int x,const int y); //¼ÆËã¸´Êı³Ë·½
-void matrixpower(const int x,double y); //¼ÆËã¾ØÕó³Ë·½
-inline int deepen(const double x,int depnum); //½â·½³ÌÄ£Ê½ÖĞ¾«¶ÈÏòÉîÈëÒ»²ã
-inline int jump(int depnum); //½â·½³ÌÄ£Ê½ÖĞ¾«¶ÈÏòÇ³³öÒ»²ã
-bool mulroot(const int n,const int m,const double x,const double y); //½â·½³ÌÄ£Ê½ÖĞÅĞ¶ÏÊÇ·ñÊÇÖØ¸ù
-void newroot(const double x,const double y); //½â·½³ÌÄ£Ê½ÖĞÉú³ÉÒ»¸öĞÂµÄ¸ù
-int solveout(int n,const double x,const double y); //½â·½³ÌÄ£Ê½Ê±Êä³ö·½³ÌµÄ½â
-void saveanswer(); //½«´ğ°¸¼ÇÈë´æ´¢Êı¾İ
-void writememory(); //½«´æ´¢Êı¾İĞ´Èë³ÌĞòÄ¿Â¼
+void initializeandreadmemory(); //åˆå§‹åŒ–çª—å£å¹¶ä»ç¨‹åºç›®å½•è¯»å–å­˜å‚¨æ•°æ®
+void inputexpression(); //è¾“å…¥è¡¨è¾¾å¼
+void randominitialize(); //éšæœºåˆå§‹åŒ–randomnumlist
+void uppervar(); //å°†è¡¨è¾¾å¼çš„x,y,z,wå˜æˆå¤§å†™
+void clear(); //å°†æ‰€æœ‰å­˜å‚¨æ•°æ®æ¸…é›¶
+void showmemory(); //å°†æ‰€æœ‰å­˜å‚¨æ•°æ®åˆ—ä¸¾å‡ºæ¥
+void dealstring(); //æå–è¡¨è¾¾å¼ä¸­çš„STRxå­—ä¸²
+bool solveon(); //åˆ¤æ–­æ˜¯å¦å¯åŠ¨è§£æ–¹ç¨‹æ¨¡å¼
+void translate(); //ç¿»è¯‘è¡¨è¾¾å¼ï¼Œç¿»è¯‘ç»“æœå­˜åœ¨ç»“æ„ä½“æ•°ç»„dataä¸­
+void addrightbrac(); //å°†å·¦æ‹¬å·å’Œå³æ‹¬å·çš„æ•°ç›®é…å¹³
+void debugoutput(); //è°ƒè¯•ç¨‹åºæ—¶çš„è¾“å‡º
+int searchbrac(); //å¯»æ‰¾å·¦æ‹¬å·å’ŒåŒ¹é…å³æ‹¬å·
+void calcexpression(const int x,const int z); //æ±‚å’Œã€æ±‚ç§¯ã€è®¡ç®—æ•°å€¼å¾®ç§¯åˆ†
+int maincalc(); //æ€»å¼•æ“ï¼šæ¯ä¸€æ¬¡è®¡ç®—å…ˆæ‰¾å·¦å³æ‹¬å·ï¼Œå†æ ¹æ®æƒ…å†µè°ƒç”¨å…·ä½“è®¡ç®—çš„å‡½æ•°ï¼Œç›´åˆ°åªå‰©ä¸€ä¸ªæ•°
+void calculate(const int x,const int y,const int z); //åœ¨å·¦å³æ‹¬å·é—´è®¡ç®—(zä¸ºä¼˜å…ˆçº§)
+void tranfunvar(const int x,const int y); //å¯åŠ¨å‡½æ•°æ¨¡å¼æ—¶å°†å‡½æ•°å˜é‡å˜æˆå…·ä½“æ•°å€¼
+void calcvector(const int x,const int y); //ç”Ÿæˆå¹¶è®¡ç®—é›†åˆ/å‘é‡/æ•°ç»„ç­‰ï¼ˆæœ€å€¼ã€æœ€å¤§å…¬çº¦æ•°ã€æœ€å°å…¬å€æ•°ã€æ±‚å’Œã€æ±‚å¹³å‡æ•°ã€æ±‚ä¸­ä½æ•°ã€æ±‚æ ‡å‡†å·®ç­‰ï¼‰
+void calcmatrix(const int x,const int y); //è½¬æ¢æˆçŸ©é˜µç±»å‹
+void calcdiag(const int x,const int y); //è½¬æ¢ä¸ºå¯¹è§’çŸ©é˜µ
+void detcm(const int x,const int n,const double number[ ]); //è®¡ç®—å¤ç³»æ•°æ–¹é˜µçš„è¡Œåˆ—å¼
+void createcomplex(const int x,const double a,const double b); //ç”Ÿæˆå¤æ•°
+inline void matherr(const int x); //å‡ºé”™æ—¶çš„å¿«é€Ÿå¤„ç†
+void transpose(const int x); //çŸ©é˜µè½¬ç½®
+void adjmat(const int x); //æ±‚ä¼´éšçŸ©é˜µ
+void invmat(const int x); //æ±‚é€†çŸ©é˜µ
+inline void oneomatrix(const int x); //å°†ä¸€é˜¶çŸ©é˜µå˜æˆæ•°
+void calcordinfun(const int x,const int y); //è®¡ç®—è‡ªå®šä¹‰å‡½æ•°
+void funvarnext(); //å‡½æ•°æ¨¡å¼æ—¶å°†å‡½æ•°å€¼å˜æˆä¸‹ä¸€ä¸ª
+void fundatacopy(const double f,const int z); //å‡½æ•°æ¨¡å¼æ—¶è®¡ç®—æœ€å€¼
+bool funend(); //å‡½æ•°æ¨¡å¼æ—¶åˆ¤æ–­æ˜¯å¦ç»“æŸ
+bool include(const int x,const int z); //åˆ¤æ–­æŸç§è¿ç®—ç¬¦å·æ˜¯å¦ç¬¦åˆä¼˜å…ˆçº§
+void countmatrix(const int x,const int y,const int z); //å¯¹çŸ©é˜µã€å¤æ•°è¿ç®—å®è¡Œè®¡ç®—
+void complexpower(const int x,const int y); //è®¡ç®—å¤æ•°ä¹˜æ–¹
+void matrixpower(const int x,double y); //è®¡ç®—çŸ©é˜µä¹˜æ–¹
+inline int deepen(const double x,int depnum); //è§£æ–¹ç¨‹æ¨¡å¼ä¸­ç²¾åº¦å‘æ·±å…¥ä¸€å±‚
+inline int jump(int depnum); //è§£æ–¹ç¨‹æ¨¡å¼ä¸­ç²¾åº¦å‘æµ…å‡ºä¸€å±‚
+bool mulroot(const int n,const int m,const double x,const double y); //è§£æ–¹ç¨‹æ¨¡å¼ä¸­åˆ¤æ–­æ˜¯å¦æ˜¯é‡æ ¹
+void newroot(const double x,const double y); //è§£æ–¹ç¨‹æ¨¡å¼ä¸­ç”Ÿæˆä¸€ä¸ªæ–°çš„æ ¹
+int solveout(int n,const double x,const double y); //è§£æ–¹ç¨‹æ¨¡å¼æ—¶è¾“å‡ºæ–¹ç¨‹çš„è§£
+void saveanswer(); //å°†ç­”æ¡ˆè®°å…¥å­˜å‚¨æ•°æ®
+void writememory(); //å°†å­˜å‚¨æ•°æ®å†™å…¥ç¨‹åºç›®å½•
 /*----------------------------------------------------------------------------------------------------------*/
 void initializeandreadmemory()
 {
 	int i,j;
-	SetConsoleTitle("Count Fever 1.08 ÖĞÎÄ°æ");
+	SetConsoleTitle("Count Fever 1.08 ä¸­æ–‡ç‰ˆ");
 	HANDLE hOut;
 	hOut=GetStdHandle(STD_OUTPUT_HANDLE);
 	COORD size={1000,9999};
@@ -116,7 +115,7 @@ void initializeandreadmemory()
 	infile.open("CountFever.sav",ios::in);
 	if(!infile)
 	{
-		cerr<<"ÎŞ·¨¶ÁÈ¡´æ´¢Êı¾İ£¬´´½¨ÁËÒ»¸öĞÂµÄ´æµµ\n";
+		cerr<<"æ— æ³•è¯»å–å­˜å‚¨æ•°æ®ï¼Œåˆ›å»ºäº†ä¸€ä¸ªæ–°çš„å­˜æ¡£\n";
 		writememory();
 		return;
 	}
@@ -135,7 +134,7 @@ void initializeandreadmemory()
 	for(i=0;i<=9;i++)
 		infile.getline(memstr[i],5000,'\n');
 	infile.close();
-	cout<<"³É¹¦¶ÁÈ¡´æ´¢Êı¾İ\n";
+	cout<<"æˆåŠŸè¯»å–å­˜å‚¨æ•°æ®\n";
 }
 /*----------------------------------------------------------------------------------------------------------*/
 void inputexpression()
@@ -149,7 +148,7 @@ void inputexpression()
 		expressionorder=expressionsum=0;
 		for(i=0;i<5000;i++)
 		    input[i]='\0';
-	    cout<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+	    cout<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 		do
 		{
 			cin.getline(input,5000,'\n');
@@ -159,53 +158,53 @@ void inputexpression()
 				length=0;
 				clear();
 				writememory();
-				cout<<"³É¹¦ÇåÁã´æ´¢Êı¾İ"<<endl<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"æˆåŠŸæ¸…é›¶å­˜å‚¨æ•°æ®"<<endl<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='S'&&input[1]=='H'&&input[2]=='O'&&input[3]=='W'&&input[4]=='M')
 			{
 				length=0;
 				showmemory();
-				cout<<"\nÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"\nè¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='D'&&input[1]=='E'&&input[2]=='G')
 			{
 				length=0;
 				degreemode=1;
-				cout<<"Ê¹ÓÃ½Ç¶ÈÖÆ"<<endl<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"ä½¿ç”¨è§’åº¦åˆ¶"<<endl<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='R'&&input[1]=='A'&&input[2]=='D')
 			{
 				length=0;
 				degreemode=0;
-				cout<<"Ê¹ÓÃ»¡¶ÈÖÆ"<<endl<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"ä½¿ç”¨å¼§åº¦åˆ¶"<<endl<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='D'&&input[1]=='E'&&input[2]=='C')
 			{
 				length=0;
 				fracoutmode=0;
-				cout<<"Êä³öĞ¡Êı"<<endl<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"è¾“å‡ºå°æ•°"<<endl<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='F'&&input[1]=='R'&&input[2]=='A')
 			{
 				length=0;
 				fracoutmode=1;
-				cout<<"Êä³ö·ÖÊı»òÓĞÀí¸ùÊ½"<<endl<<endl<<"ÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"è¾“å‡ºåˆ†æ•°æˆ–æœ‰ç†æ ¹å¼"<<endl<<endl<<"è¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 			else if(input[0]=='C'&&input[1]=='L'&&input[2]=='S'&&input[3]=='C'&&input[4]=='R')
 			{
 				length=0;
 				system("cls");
-				cout<<"³É¹¦ÇåÆÁ\n\nÊäÈëÒ»Ìõ±í´ïÊ½»òÒ»ÌõÖ¸Áî: "<<endl;
+				cout<<"æˆåŠŸæ¸…å±\n\nè¾“å…¥ä¸€æ¡è¡¨è¾¾å¼æˆ–ä¸€æ¡æŒ‡ä»¤: "<<endl;
 			}
 		}while(length==0);
 		if(input[0]=='E'&&input[1]=='X'&&input[2]=='P'&&input[3]=='R'&&input[4]=='E')
 		{
-			cout<<"±í´ïÊ½µÄÊıÁ¿? ( 1 -- 50 )       £¨È±Ê¡ÖµÎª5£©\n";
+			cout<<"è¡¨è¾¾å¼çš„æ•°é‡? ( 1 -- 50 )       ï¼ˆç¼ºçœå€¼ä¸º5ï¼‰\n";
 			expressionsum=int(inputvardata(mempoint,5,1));
 			if(expressionsum>50||expressionsum<=0)expressionsum=0;
 			for(i=1;i<=expressionsum;i++)
 			{
-				cout<<"ÊäÈëµÚ"<<i<<"Ìõ±í´ïÊ½ :\n";
+				cout<<"è¾“å…¥ç¬¬"<<i<<"æ¡è¡¨è¾¾å¼ :\n";
 				for(j=0;j<5000;j++)
 					memexpinput[i][j]='\0';
 				do
@@ -218,7 +217,7 @@ void inputexpression()
 	if(expressionsum>0)
 	{
 		expressionorder++;
-		cout<<endl<<"±í´ïÊ½"<<expressionorder<<" :\n";
+		cout<<endl<<"è¡¨è¾¾å¼"<<expressionorder<<" :\n";
 		for(i=0;i<5000;i++)
 			input[i]=memexpinput[expressionorder][i];
 		length=strlen(input);
@@ -234,7 +233,7 @@ void inputexpression()
 		solvemode=funmode=1;
 		if(input[0]=='S')
 		{
-			cout<<"ÊäÈëÒ»Ìõ¹ØÓÚXµÄ·½³Ì: \n";
+			cout<<"è¾“å…¥ä¸€æ¡å…³äºXçš„æ–¹ç¨‹: \n";
 		    for(i=0;i<5000;i++)
 			    input[i]='\0';
 		    do
@@ -257,13 +256,13 @@ void inputexpression()
 		input[length+3]=input[i+1]=')';
 		length=strlen(input);
 		var[0].use=var[1].use=1;
-		cout<<"X¡İ?       £¨È±Ê¡ÖµÎª-20£©\n";
+		cout<<"Xâ‰¥?       ï¼ˆç¼ºçœå€¼ä¸º-20ï¼‰\n";
 		var[1].start=var[1].temp=inputvardata(mempoint,-20,1);
-		cout<<"X¡Ü?       £¨È±Ê¡ÖµÎª20£©\n";
+		cout<<"Xâ‰¤?       ï¼ˆç¼ºçœå€¼ä¸º20ï¼‰\n";
 		var[1].end=inputvardata(mempoint,20,1);
 		while(var[1].end<=var[1].start)
 		{
-			cout<<"³ö´í£¡ÖØĞÂÊäÈë :       £¨È±Ê¡ÖµÎª20£©\n";
+			cout<<"å‡ºé”™ï¼é‡æ–°è¾“å…¥ :       ï¼ˆç¼ºçœå€¼ä¸º20ï¼‰\n";
 			var[1].end=inputvardata(mempoint,20,1);
 		}
 		solvesum=99;
@@ -351,27 +350,27 @@ void inputexpression()
 		for(j=1;j<=4;j++)
 			if(var[j].use==1)
 			{
-				cout<<char(j<=3?j+87:87)<<"µÄÆğÊ¼Öµ?      £¨È±Ê¡ÖµÎª-10£©\n";
+				cout<<char(j<=3?j+87:87)<<"çš„èµ·å§‹å€¼?      ï¼ˆç¼ºçœå€¼ä¸º-10ï¼‰\n";
 				var[j].start=inputvardata(mempoint,-10,1);
-				cout<<char(j<=3?j+87:87)<<"µÄÖÕÖ¹Öµ?      £¨È±Ê¡ÖµÎª10£©\n";
+				cout<<char(j<=3?j+87:87)<<"çš„ç»ˆæ­¢å€¼?      ï¼ˆç¼ºçœå€¼ä¸º10ï¼‰\n";
 				var[j].end=inputvardata(mempoint,10,1);
-				cout<<char(j<=3?j+87:87)<<"µÄ¼ä¸ô?        £¨È±Ê¡ÖµÎª1£©\n";
+				cout<<char(j<=3?j+87:87)<<"çš„é—´éš”?        ï¼ˆç¼ºçœå€¼ä¸º1ï¼‰\n";
 				var[j].step=inputvardata(mempoint,1,1);
 				while(var[j].step<=0)
 				{
-					cout<<"³ö´í£¡¼ä¸ô±ØĞë´óÓÚÁã£¡ÖØĞÂÊäÈë :     £¨È±Ê¡ÖµÎª1£©\n";
+					cout<<"å‡ºé”™ï¼é—´éš”å¿…é¡»å¤§äºé›¶ï¼é‡æ–°è¾“å…¥ :     ï¼ˆç¼ºçœå€¼ä¸º1ï¼‰\n";
 					var[j].step=inputvardata(mempoint,1,1);
 				}
 				var[j].temp=var[j].start;
 				var[j].end+=1e-9;
 			}
-		cout<<"ÏŞ¶¨Ìõ¼şµÄÊıÁ¿? ( 0 -- 20 )    £¨È±Ê¡ÖµÎª0£©\n";
+		cout<<"é™å®šæ¡ä»¶çš„æ•°é‡? ( 0 -- 20 )    ï¼ˆç¼ºçœå€¼ä¸º0ï¼‰\n";
 		cin.getline(conditemp,800,'\n');
 		condisum=atoi(conditemp);
 		if(strlen(conditemp)==0||abs(condisum)>20)condisum=0;
 		for(j=1;j<=condisum;j++)
 		{
-			cout<<"ÊäÈëµÚ"<<j<<"¸öÏŞ¶¨Ìõ¼ş :\n";
+			cout<<"è¾“å…¥ç¬¬"<<j<<"ä¸ªé™å®šæ¡ä»¶ :\n";
 			cin.getline(conditemp,800,'\n');
 			templength=strlen(conditemp);
 			for(k=length-1;k>=i;k--)
@@ -387,12 +386,12 @@ void inputexpression()
 		}
 		if(condisum==0&&var[1].use+var[2].use+var[3].use+var[4].use==1)
 		{
-			cout<<"ÊÇ·ñ»æÖÆº¯ÊıÍ¼Ïó? (y/n)     £¨Ä¬ÈÏÎªÊÇ£©\n";
+			cout<<"æ˜¯å¦ç»˜åˆ¶å‡½æ•°å›¾è±¡? (y/n)     ï¼ˆé»˜è®¤ä¸ºæ˜¯ï¼‰\n";
 			cin.getline(conditemp,800,'\n');
 			if(!(conditemp[0]=='N'||conditemp[0]=='n'))funplot=1;
 			if(funplot)
 			{
-				cout<<"×ø±êÔ­µãµÄ×İ×ø±ê?      £¨È±Ê¡ÖµÎªÏµÍ³Éè¶¨Öµ£©\n";
+				cout<<"åæ ‡åŸç‚¹çš„çºµåæ ‡?      ï¼ˆç¼ºçœå€¼ä¸ºç³»ç»Ÿè®¾å®šå€¼ï¼‰\n";
 				codoy=inputvardata(mempoint,1.2345e+308,1);
 				ordinoy=codoy!=1.2345e+308;
 			}
@@ -475,7 +474,7 @@ void showmemory()
 	infile.open("CountFever.sav",ios::in);
 	if(!infile)
 	{
-		cerr<<"³ö´í£¡ÎŞ·¨¶ÁÈ¡´æ´¢Êı¾İ£¡\n";
+		cerr<<"å‡ºé”™ï¼æ— æ³•è¯»å–å­˜å‚¨æ•°æ®ï¼\n";
 		return;
 	}
 	double temp,temp2;
@@ -500,7 +499,7 @@ void showmemory()
 		{
 		    if(c>70)
 			{
-				cout<<"(¾ØÕóÌ«´óÎŞ·¨Êä³ö)"<<endl;
+				cout<<"(çŸ©é˜µå¤ªå¤§æ— æ³•è¾“å‡º)"<<endl;
 				for(j=1;j<=r*c;j++)
 					infile>>temp;
 			}
@@ -509,20 +508,20 @@ void showmemory()
 				cout<<endl;
 		        for(j=1;j<=r;j++)
 				{
-			        if(r==1)cout<<"£¨";
-			        else if(j==1)cout<<"©°";
-			        else if(j==r)cout<<"©¸";
-			        else cout<<"©¦";
+			        if(r==1)cout<<"ï¼ˆ";
+			        else if(j==1)cout<<"â”Œ";
+			        else if(j==r)cout<<"â””";
+			        else cout<<"â”‚";
 			        for(k=1;k<=c;k++)
 					{
 				        infile>>temp;
 				        cout<<setprecision(6)<<setw(14)<<temp;
 					}
-			        if(r==1)cout<<"    £©";
-			        else if(j==1)cout<<"    ©´";
-			        else if(j==r)cout<<"    ©¼";
-			        else cout<<"    ©¦";
-			        if(j==r)cout<<r<<"¡Á"<<c<<endl;
+			        if(r==1)cout<<"    ï¼‰";
+			        else if(j==1)cout<<"    â”";
+			        else if(j==r)cout<<"    â”˜";
+			        else cout<<"    â”‚";
+			        if(j==r)cout<<r<<"Ã—"<<c<<endl;
 			        else cout<<endl;
 				}
 			}
@@ -537,7 +536,7 @@ void showmemory()
 		if(i<=6)cout<<str<<endl;
 		else cout<<"STR"<<i-7<<":"<<str<<endl;
 	}
-	cout<<"³É¹¦ÁĞ¾Ù´æ´¢Êı¾İ\n";
+	cout<<"æˆåŠŸåˆ—ä¸¾å­˜å‚¨æ•°æ®\n";
 	infile.close();
 }
 /*----------------------------------------------------------------------------------------------------------*/
@@ -5471,7 +5470,7 @@ int solveout(int n,const double x,const double y)
 {
 	n++;
 	solvelist[n]=x;
-	if(n==1)cout<<"·½³ÌµÄ½â:"<<endl;
+	if(n==1)cout<<"æ–¹ç¨‹çš„è§£:"<<endl;
 	cout<<"X"<<n;
 	if(n>=10)cout<<" = ";
 	else cout<<"  = ";
@@ -5507,7 +5506,7 @@ void saveanswer()
 			for(j=1;j<=memans.r*memans.c;j++)
 				memope==1?mem[mempos].mat[j]+=memans.mat[j]:mem[mempos].mat[j]-=memans.mat[j];
 		}
-		else if(!funmode&&!solvemode)cout<<"ÊıÑ§´íÎó£¡ÎŞ·¨¸³Öµ£¡\n";
+		else if(!funmode&&!solvemode)cout<<"æ•°å­¦é”™è¯¯ï¼æ— æ³•èµ‹å€¼ï¼\n";
 	}
 	else if(memope==3)
 	{
@@ -5545,7 +5544,7 @@ void saveanswer()
 			for(i=1;i<=mem[mempos].r*mem[mempos].c;i++)
 				mem[mempos].mat[i]=mem[0].mat[i];
 		}
-		else if(!funmode&&!solvemode)cout<<"ÊıÑ§´íÎó£¡ÎŞ·¨¸³Öµ£¡\n";
+		else if(!funmode&&!solvemode)cout<<"æ•°å­¦é”™è¯¯ï¼æ— æ³•èµ‹å€¼ï¼\n";
 	}
 	else if(memope==4)
 	{
@@ -5570,7 +5569,7 @@ void saveanswer()
 			for(j=1;j<=mem[mempos].r*mem[mempos].c;j++)
 				mem[mempos].mat[j]=mem[0].mat[j];
 		}
-		else if(!funmode&&!solvemode)cout<<"ÊıÑ§´íÎó£¡ÎŞ·¨¸³Öµ£¡\n";
+		else if(!funmode&&!solvemode)cout<<"æ•°å­¦é”™è¯¯ï¼æ— æ³•èµ‹å€¼ï¼\n";
 	}
 }
 /*----------------------------------------------------------------------------------------------------------*/
@@ -5673,7 +5672,7 @@ void debugoutput()
 				else if(data[i].ope==51)cout<<" == ";
 				else if(data[i].ope==52)cout<<" <= ";
 				else if(data[i].ope==53)cout<<" >= ";
-				else if(data[i].ope==54)cout<<" ¡Ù ";
+				else if(data[i].ope==54)cout<<" â‰  ";
 				else if(data[i].ope==55)cout<<" sec( ";
 				else if(data[i].ope==56)cout<<" csc( ";
 				else if(data[i].ope==57)cout<<" ash( ";
@@ -5762,7 +5761,7 @@ int main()
 	int i,j=0,k,wtime,ftime,f1stnum,temppos=0,length,depnum,stime,solvenum,solvenum3,outfill;
 	bool solved,alwaysmatherr,cmpable,cmpable2,complexfracout;
 	double eqlx,eps;
-	const string dayofweek[7]={"ĞÇÆÚÈÕ","ĞÇÆÚÒ»","ĞÇÆÚ¶ş","ĞÇÆÚÈı","ĞÇÆÚËÄ","ĞÇÆÚÎå","ĞÇÆÚÁù"};
+	const string dayofweek[7]={"æ˜ŸæœŸæ—¥","æ˜ŸæœŸä¸€","æ˜ŸæœŸäºŒ","æ˜ŸæœŸä¸‰","æ˜ŸæœŸå››","æ˜ŸæœŸäº”","æ˜ŸæœŸå…­"};
 	time_t calctime;
 	initializeandreadmemory();
 	randominitialize();
@@ -5819,7 +5818,7 @@ int main()
 		    dataleft=datasum;
 		    wtime=matherror=0;
 			ondisplay=1;
-		    if(syntaxerror)cout<<"±í´ïÊ½Óï·¨´íÎó£¡\n";
+		    if(syntaxerror)cout<<"è¡¨è¾¾å¼è¯­æ³•é”™è¯¯ï¼\n";
 		    else
 			{
 		        wtime=maincalc();
@@ -5838,7 +5837,7 @@ int main()
 							}
 						}
 				}
-				if((wtime>=400||syntaxerror)&&ondisplay==1)funmode?cout<<" ±í´ïÊ½Óï·¨´íÎó£¡\n":cout<<"±í´ïÊ½Óï·¨´íÎó£¡\n";
+				if((wtime>=400||syntaxerror)&&ondisplay==1)funmode?cout<<" è¡¨è¾¾å¼è¯­æ³•é”™è¯¯ï¼\n":cout<<"è¡¨è¾¾å¼è¯­æ³•é”™è¯¯ï¼\n";
 			    else if(matherror==1&&ondisplay==1)
 				{
 					if(solvemode)
@@ -5857,7 +5856,7 @@ int main()
 						}
 					}
 					else if(plotting)plotdata[ftime].re=plotdata[ftime].im=plotdata[ftime].t=0;
-					else funmode?cout<<" ÊıÑ§´íÎó£¡\n":cout<<"ÊıÑ§´íÎó£¡\n";
+					else funmode?cout<<" æ•°å­¦é”™è¯¯ï¼\n":cout<<"æ•°å­¦é”™è¯¯ï¼\n";
 				}
 		        else if(ondisplay==1)
 				{
@@ -5944,17 +5943,17 @@ int main()
 									}
 								if(matherror)
 								{
-									cout<<"ÊıÑ§´íÎó£¡\n";
+									cout<<"æ•°å­¦é”™è¯¯ï¼\n";
 									delete []data[i].mat;
 									break;
 								}
 								if(data[i].c>70)
 								{
-									cout<<"¾ØÕóÌ«´óÎŞ·¨Êä³ö£¡\n";
+									cout<<"çŸ©é˜µå¤ªå¤§æ— æ³•è¾“å‡ºï¼\n";
 									delete []data[i].mat;
 									break;
 								}
-								cout<<"´ğ°¸:             (¼ÆËãºÄÊ±"<<clock()-calctime+1<<"ºÁÃë)\n";
+								cout<<"ç­”æ¡ˆ:             (è®¡ç®—è€—æ—¶"<<clock()-calctime+1<<"æ¯«ç§’)\n";
 								if(data[i].r==1&&data[i].c==2&&data[i].fac==1)
 								{
 									complexfracout=complexout(data[i].mat[1],data[i].mat[2]);
@@ -5968,10 +5967,10 @@ int main()
 								for(j=1;j<=data[i].r;j++)
 								{
 									if(data[i].r==1&&data[i].c==2&&data[i].fac==1)break;
-									if(data[i].r==1)cout<<"£¨";
-									else if(j==1)cout<<"©°";
-									else if(j==data[i].r)cout<<"©¸";
-									else cout<<"©¦";
+									if(data[i].r==1)cout<<"ï¼ˆ";
+									else if(j==1)cout<<"â”Œ";
+									else if(j==data[i].r)cout<<"â””";
+									else cout<<"â”‚";
 									for(k=1;k<=data[i].c;k++)
 									{
 										if(fabs(data[i].mat[(j-1)*data[i].c+k])<1e-14)data[i].mat[(j-1)*data[i].c+k]=0;
@@ -5993,11 +5992,11 @@ int main()
 										}
 										outfill=0;
 									}
-									if(data[i].r==1)cout<<"    £©";
-									else if(j==1)cout<<"    ©´";
-									else if(j==data[i].r)cout<<"    ©¼";
-									else cout<<"    ©¦";
-									if(j==data[i].r)cout<<data[i].r<<"¡Á"<<data[i].c<<endl;
+									if(data[i].r==1)cout<<"    ï¼‰";
+									else if(j==1)cout<<"    â”";
+									else if(j==data[i].r)cout<<"    â”˜";
+									else cout<<"    â”‚";
+									if(j==data[i].r)cout<<data[i].r<<"Ã—"<<data[i].c<<endl;
 									else cout<<endl;
 								}
 								memans.r=data[i].r;
@@ -6012,8 +6011,8 @@ int main()
 							if(!solvemode&&!funmode&&data[i].cla==17)
 							{
 								data[i].num=countdate(&data[i].fac,&data[i].r,&data[i].c,0,&matherror);
-								cout<<"´ğ°¸:             (¼ÆËãºÄÊ±"<<clock()-calctime+1<<"ºÁÃë)\n";
-								cout<<data[i].fac<<"Äê"<<data[i].r<<"ÔÂ"<<data[i].c<<"ÈÕ "<<dayofweek[int(data[i].num)]<<endl;
+								cout<<"ç­”æ¡ˆ:             (è®¡ç®—è€—æ—¶"<<clock()-calctime+1<<"æ¯«ç§’)\n";
+								cout<<data[i].fac<<"å¹´"<<data[i].r<<"æœˆ"<<data[i].c<<"æ—¥ "<<dayofweek[int(data[i].num)]<<endl;
 								syntaxerror=0;
 								memans.fac=0;
 								memans.r=memans.c=1;
@@ -6038,7 +6037,7 @@ int main()
 										stime=0;
 									}
 								}
-					            else funmode?cout<<" ÊıÑ§´íÎó£¡\n":cout<<"ÊıÑ§´íÎó£¡\n";
+					            else funmode?cout<<" æ•°å­¦é”™è¯¯ï¼\n":cout<<"æ•°å­¦é”™è¯¯ï¼\n";
 							}
 						    else 
 							{
@@ -6062,7 +6061,7 @@ int main()
 											delete []data[i].mat;
 											data[i].num=0;
 											cmpable=0;
-											cout<<" ¾ØÕóÌ«´óÎŞ·¨Êä³ö£¡\n";
+											cout<<" çŸ©é˜µå¤ªå¤§æ— æ³•è¾“å‡ºï¼\n";
 										}
 										else if(data[i].cla==16&&data[i].r==1&&data[i].c==2&&data[i].fac==1)
 										{
@@ -6125,7 +6124,7 @@ int main()
 												if(fabs(data[i].mat[j])<1e-11)data[i].mat[j]=0;
 												if(fracoutmode)fracout(data[i].mat[j],1,15,7);
 												else cout<<setprecision(7)<<setw(15)<<data[i].mat[j];
-												if(j==data[i].r*data[i].c)cout<<" ] "<<data[i].r<<"¡Á"<<data[i].c<<endl;
+												if(j==data[i].r*data[i].c)cout<<" ] "<<data[i].r<<"Ã—"<<data[i].c<<endl;
 												else if(j%data[i].c==0)cout<<" ; ";
 												else cout<<" , ";
 											}
@@ -6140,7 +6139,7 @@ int main()
 								            memans.r=memans.c=1;
 							            	memans.mat[1]=data[i].num;
 											data[i].cla=1;
-											cout<<setw(8)<<data[i].fac<<" Äê "<<setw(2)<<data[i].r<<" ÔÂ "<<setw(2)<<data[i].c<<" ÈÕ  "<<dayofweek[int(data[i].num)]<<endl;
+											cout<<setw(8)<<data[i].fac<<" å¹´ "<<setw(2)<<data[i].r<<" æœˆ "<<setw(2)<<data[i].c<<" æ—¥  "<<dayofweek[int(data[i].num)]<<endl;
 										}
 										else 
 										{
@@ -6200,7 +6199,7 @@ int main()
 								}
 								else
 								{
-									cout<<"´ğ°¸:             (¼ÆËãºÄÊ±"<<clock()-calctime+1<<"ºÁÃë)\n";
+									cout<<"ç­”æ¡ˆ:             (è®¡ç®—è€—æ—¶"<<clock()-calctime+1<<"æ¯«ç§’)\n";
 									fracout(data[i].num,4,NULL,12);
 									cout<<setprecision(12)<<data[i].num<<endl;
 								}
@@ -6215,7 +6214,7 @@ int main()
 							syntaxerror=0;
 				            break;
 						}
-					if(syntaxerror)funmode?cout<<" ±í´ïÊ½Óï·¨´íÎó£¡\n":cout<<"±í´ïÊ½Óï·¨´íÎó£¡\n";
+					if(syntaxerror)funmode?cout<<" è¡¨è¾¾å¼è¯­æ³•é”™è¯¯ï¼\n":cout<<"è¡¨è¾¾å¼è¯­æ³•é”™è¯¯ï¼\n";
 				}
 			}
 			if((syntaxerror||wtime>=400)&&solvemode)break;
@@ -6269,8 +6268,8 @@ int main()
 					solved=1;
 				}
 			}
-			if(alwaysmatherr)cout<<"ÊıÑ§´íÎó£¡\n";
-			else if(!solved)cout<<"·½³ÌºÜ¿ÉÄÜÎŞ½â£¡\n";
+			if(alwaysmatherr)cout<<"æ•°å­¦é”™è¯¯ï¼\n";
+			else if(!solved)cout<<"æ–¹ç¨‹å¾ˆå¯èƒ½æ— è§£ï¼\n";
 		}
 		if(solvemode||funmode)
 		{
@@ -6279,12 +6278,12 @@ int main()
 			solvesum=solvenum;
 		}
 		writememory();
-		if(ftime==9000)cout<<"Êı¾İÌ«¶à£¡ \n";
+		if(ftime==9000)cout<<"æ•°æ®å¤ªå¤šï¼ \n";
 		if(funmode==1&&solvemode==0)
 		{
 			if(cmpable&&cmpable2)
 			{
-			    cout<<"ÒÔÉÏº¯ÊıÖµÖĞµÄ×î´óÖµ: ";
+			    cout<<"ä»¥ä¸Šå‡½æ•°å€¼ä¸­çš„æœ€å¤§å€¼: ";
 			    for(i=1;i<=4;i++)
 				    if(var[i].use==1)
 					{
@@ -6295,7 +6294,7 @@ int main()
 			    cout<<"   "<<input[temppos]<<"= ";
 				if(fracoutmode)fracout(fopti[0].f,2,NULL,10);
 				else cout<<setprecision(10)<<fopti[0].f;
-			    cout<<"\nÒÔÉÏº¯ÊıÖµÖĞµÄ×îĞ¡Öµ: ";
+			    cout<<"\nä»¥ä¸Šå‡½æ•°å€¼ä¸­çš„æœ€å°å€¼: ";
 			    for(i=1;i<=4;i++)
 				    if(var[i].use==1)
 					{
@@ -6308,11 +6307,11 @@ int main()
 				else cout<<setprecision(10)<<fopti[1].f;
 				cout<<endl;
 			}
-			else cout<<"ÎŞ·¨±È½ÏÒÔÉÏº¯ÊıÖµµÄ´óĞ¡£¡\n";
+			else cout<<"æ— æ³•æ¯”è¾ƒä»¥ä¸Šå‡½æ•°å€¼çš„å¤§å°ï¼\n";
 		}
 		if(plotting)plot(input,ordinoy,codoy);
 	}
-	cout<<"ÕıÔÚ´¢´æÊı¾İ...\n\n";
+	cout<<"æ­£åœ¨å‚¨å­˜æ•°æ®...\n\n";
 	Sleep(250);
 	return 0;
 }
