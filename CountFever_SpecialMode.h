@@ -1,16 +1,16 @@
 using namespace std;
-void primefactorize(); //·Ö½âÖÊÒòÊıÄ£Ê½
-void hexconver(); //½øÖÆ×ª»»Ä£Ê½
-inline char hexnumtochar(const int n); //½«Êı×ª³É¸ß½øÖÆÖĞµÄ×ÖÄ¸
-inline int hexchartonum(const char c); //½«¸ß½øÖÆÖĞµÄ×ÖÄ¸×ª³ÉÊı
-void hexturn(unsigned __int64 n,const int h); //½«Ê®½øÖÆÊı×ª³ÉÈÎÒâ½øÖÆ
-void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])); //½âÈı½ÇĞÎÄ£Ê½
-inline short shape(const double a,const double b,const double c,const double A,const double B,const double C); //ÅĞ¶Ï²¢Êä³öÈı½ÇĞÎµÄĞÎ×´
-void lineout(const double x1,const double y1,const double x2,const double y2,const bool fracoutmode); //Êä³öÖ±Ïß·½³Ì
-void pointout(const double x,const double y,const bool fracoutmode); //Êä³öµãµÄ×ø±ê
-double inputangle(const char angle,double *(p[ ]),const bool degreemode); //ÊäÈëÈı½ÇĞÎµÄ½Ç
-double inputside(const char side,double *(p[ ])); //ÊäÈëÈı½ÇĞÎµÄ±ß³¤
-void help(); //°ïÖú
+void primefactorize(); //åˆ†è§£è´¨å› æ•°æ¨¡å¼
+void hexconver(); //è¿›åˆ¶è½¬æ¢æ¨¡å¼
+inline char hexnumtochar(const int n); //å°†æ•°è½¬æˆé«˜è¿›åˆ¶ä¸­çš„å­—æ¯
+inline int hexchartonum(const char c); //å°†é«˜è¿›åˆ¶ä¸­çš„å­—æ¯è½¬æˆæ•°
+void hexturn(unsigned __int64 n,const int h); //å°†åè¿›åˆ¶æ•°è½¬æˆä»»æ„è¿›åˆ¶
+void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])); //è§£ä¸‰è§’å½¢æ¨¡å¼
+inline short shape(const double a,const double b,const double c,const double A,const double B,const double C); //åˆ¤æ–­å¹¶è¾“å‡ºä¸‰è§’å½¢çš„å½¢çŠ¶
+void lineout(const double x1,const double y1,const double x2,const double y2,const bool fracoutmode); //è¾“å‡ºç›´çº¿æ–¹ç¨‹
+void pointout(const double x,const double y,const bool fracoutmode); //è¾“å‡ºç‚¹çš„åæ ‡
+double inputangle(const char angle,double *(p[ ]),const bool degreemode); //è¾“å…¥ä¸‰è§’å½¢çš„è§’
+double inputside(const char side,double *(p[ ])); //è¾“å…¥ä¸‰è§’å½¢çš„è¾¹é•¿
+void help(); //å¸®åŠ©
 /*----------------------------------------------------------------------------------------------------------*/
 void primefactorize()
 {
@@ -18,7 +18,7 @@ void primefactorize()
 	short k,p;
 	bool t,t2;
 	char tempnum[50];
-	cout<<"ÊäÈëÒ»¸öÕıÕûÊı : ( 1 -- 9999999999999999999 ) \n";
+	cout<<"è¾“å…¥ä¸€ä¸ªæ­£æ•´æ•° : ( 1 -- 9999999999999999999 ) \n";
 	do
 	{
 		n=0;
@@ -30,12 +30,12 @@ void primefactorize()
 				n+=tempnum[i]-48;
 			}
 			else break;
-		if(n==0&&strlen(tempnum)>0)cout<<"³ö´í£¡±ØĞëÊÇÕıÕûÊı£¡ÖØĞÂÊäÈë :\n";
+		if(n==0&&strlen(tempnum)>0)cout<<"å‡ºé”™ï¼å¿…é¡»æ˜¯æ­£æ•´æ•°ï¼é‡æ–°è¾“å…¥ :\n";
 	}while(n==0);
 	m=n;
 	if(m==1)
 	{
-		cout<<"1¼È²»ÊÇËØÊıÒ²²»ÊÇºÏÊı\n";
+		cout<<"1æ—¢ä¸æ˜¯ç´ æ•°ä¹Ÿä¸æ˜¯åˆæ•°\n";
 		return;
 	}
 	t=t2=0;
@@ -66,14 +66,14 @@ void primefactorize()
 		if(i>2)i+=2;
 		else i++;
 	}
-	if(t==0)printf("%I64uÊÇËØÊı\n",m);
+	if(t==0)printf("%I64uæ˜¯ç´ æ•°\n",m);
 	else if(n==1)cout<<endl;
 	else 
 	{
 		printf(" * %I64u\n",n);
 		q*=2;
 	}
-	if(t)printf("%I64u ÓĞ %I64u ¸öÔ¼Êı\n",m,q);
+	if(t)printf("%I64u æœ‰ %I64u ä¸ªçº¦æ•°\n",m,q);
 }
 /*----------------------------------------------------------------------------------------------------------*/
 inline int hexchartonum(const char c)
@@ -104,16 +104,16 @@ void hexconver()
 	int h1,ds,i,d=0,n[100]={0};
 	unsigned __int64 number=0,m=1;
 	char tempnum[100];
-	cout<<"Ñ¡ÔñÊäÈëµÄÊıµÄ½øÖÆ : ( 2 -- 62 )\n";
+	cout<<"é€‰æ‹©è¾“å…¥çš„æ•°çš„è¿›åˆ¶ : ( 2 -- 62 )\n";
 	cin.getline(tempnum,20,'\n');
 	h1=atoi(tempnum);
 	if(h1>62||h1<2)
 	{
-		cout<<"Ñ¡ÔñÄ£Ê½³ö´í£¡\n";
+		cout<<"é€‰æ‹©æ¨¡å¼å‡ºé”™ï¼\n";
 		return;
 	}
 	ds=gauss(log(pow(2,63))/log(h1));
-	cout<<"ÊäÈëÒ»¸öÕıÕûÊı : ( 1Î»Êı -- "<<ds<<"Î»Êı , Çø·Ö´óĞ¡Ğ´ )\n";
+	cout<<"è¾“å…¥ä¸€ä¸ªæ­£æ•´æ•° : ( 1ä½æ•° -- "<<ds<<"ä½æ•° , åŒºåˆ†å¤§å°å†™ )\n";
 	do
 	{
 		for(i=0;i<100;i++)
@@ -126,7 +126,7 @@ void hexconver()
 				n[d]=hexchartonum(tempnum[i]);
 			}
 			else break;
-		if(d==0&&strlen(tempnum)>0)cout<<"³ö´í£¡±ØĞëÊÇÕıÕûÊı£¡ÖØĞÂÊäÈë :\n";
+		if(d==0&&strlen(tempnum)>0)cout<<"å‡ºé”™ï¼å¿…é¡»æ˜¯æ­£æ•´æ•°ï¼é‡æ–°è¾“å…¥ :\n";
 	}while(d==0);
 	cout<<"\n  ";
 	for(i=1;i<=d;i++)
@@ -150,12 +150,12 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 {
 	double A,B,C,a,b,c,p,s,h,m,R,r,temp,xa,ya,xb,yb,xc,yc,xi,yi,xo,yo,xg,yg,xh,yh,p2,q,ea,eb,ec,sha;
 	short selectmode;
-	cout<<"Ñ¡ÔñÒ»ÖÖÄ£Ê½: ( 1 -- 4 )\n1. a , b , c\n2. ¡ÏA , b , c\n3. ¡ÏA , ¡ÏB , c\n4. A(xA,yA) , B(xB,yB) , C(xC,yC)\n";
+	cout<<"é€‰æ‹©ä¸€ç§æ¨¡å¼: ( 1 -- 4 )\n1. a , b , c\n2. âˆ A , b , c\n3. âˆ A , âˆ B , c\n4. A(xA,yA) , B(xB,yB) , C(xC,yC)\n";
 	cout<<setprecision(10);
 	selectmode=int(inputvardata(mempoint,NULL,0));
 	if(selectmode>4||selectmode<=0)
 	{
-		cout<<"Ñ¡ÔñÄ£Ê½³ö´í£¡\n";
+		cout<<"é€‰æ‹©æ¨¡å¼å‡ºé”™ï¼\n";
 		return;
 	}
 	cout<<endl;
@@ -166,7 +166,7 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		c=inputside('c',mempoint);
 		if(a+b<=c||b+c<=a||a+c<=b)
 		{
-			cout<<"ÊıÑ§´íÎó£¡\n";
+			cout<<"æ•°å­¦é”™è¯¯ï¼\n";
 			return;
 		}
 		A=acos((b*b+c*c-a*a)/(2*b*c))/PI*180;
@@ -177,19 +177,19 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		B-=temp;
 		C-=temp;
 		shape(a,b,c,A,B,C);
-		cout<<"¡ÏA = "<<A<<"¡ã= ";
+		cout<<"âˆ A = "<<A<<"Â°= ";
 		fracout(A/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(A) = ";
 		fracout(sin(A/180*PI),fracoutmode*2,NULL,12);
 		cout<<"\ncos(A) = ";
 		fracout(cos(A/180*PI),fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏB = "<<B<<"¡ã= ";
+		cout<<"\nâˆ B = "<<B<<"Â°= ";
 		fracout(B/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(B) = ";
 		fracout(sin(B/180*PI),fracoutmode*2,NULL,12);
 		cout<<"\ncos(B) = ";
 		fracout(cos(B/180*PI),fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏC = "<<C<<"¡ã= ";
+		cout<<"\nâˆ C = "<<C<<"Â°= ";
 		fracout(C/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(C) = ";
 		fracout(sin(C/180*PI),fracoutmode*2,NULL,12);
@@ -212,13 +212,13 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		shape(a,b,c,A,B,C);
 		cout<<"a = ";
 		fracout(a,fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏB = "<<B<<"¡ã= ";
+		cout<<"\nâˆ B = "<<B<<"Â°= ";
 		fracout(B/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(B) = ";
 		fracout(sin(B/180*PI),fracoutmode*2,NULL,12);
 		cout<<"\ncos(B) = ";
 		fracout(cos(B/180*PI),fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏC = "<<C<<"¡ã= ";
+		cout<<"\nâˆ C = "<<C<<"Â°= ";
 		fracout(C/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(C) = ";
 		fracout(sin(C/180*PI),fracoutmode*2,NULL,12);
@@ -244,7 +244,7 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		fracout(b,fracoutmode*2,NULL,12);
 		cout<<"\nc = ";
 		fracout(c,fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏC = "<<C<<"¡ã= ";
+		cout<<"\nâˆ C = "<<C<<"Â°= ";
 		fracout(C/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(C) = ";
 		fracout(sin(C/180*PI),fracoutmode*2,NULL,12);
@@ -254,24 +254,24 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 	}
 	else if(selectmode==4)
 	{
-		cout<<"ÊäÈëxA : \n";
+		cout<<"è¾“å…¥xA : \n";
 		xa=inputvardata(mempoint,NULL,0);
-		cout<<"ÊäÈëyA : \n";
+		cout<<"è¾“å…¥yA : \n";
 		ya=inputvardata(mempoint,NULL,0);
-		cout<<"ÊäÈëxB : \n";
+		cout<<"è¾“å…¥xB : \n";
 		xb=inputvardata(mempoint,NULL,0);
-		cout<<"ÊäÈëyB : \n";
+		cout<<"è¾“å…¥yB : \n";
 		yb=inputvardata(mempoint,NULL,0);
-		cout<<"ÊäÈëxC : \n";
+		cout<<"è¾“å…¥xC : \n";
 		xc=inputvardata(mempoint,NULL,0);
-		cout<<"ÊäÈëyC : \n";
+		cout<<"è¾“å…¥yC : \n";
 		yc=inputvardata(mempoint,NULL,0);
 		a=sqrt((xb-xc)*(xb-xc)+(yb-yc)*(yb-yc));
 		b=sqrt((xa-xc)*(xa-xc)+(ya-yc)*(ya-yc));
 		c=sqrt((xa-xb)*(xa-xb)+(ya-yb)*(ya-yb));
 		if(a+b<=c||b+c<=a||a+c<=b)
 		{
-			cout<<"ÊıÑ§´íÎó£¡\n";
+			cout<<"æ•°å­¦é”™è¯¯ï¼\n";
 			return;
 		}
 		A=acos((b*b+c*c-a*a)/(2*b*c))/PI*180;
@@ -282,11 +282,11 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		B-=temp;
 		C-=temp;
 		sha=shape(a,b,c,A,B,C);
-		cout<<"Ö±ÏßAB : ";
+		cout<<"ç›´çº¿AB : ";
 		lineout(xa,ya,xb,yb,fracoutmode);
-		cout<<"Ö±ÏßAC : ";
+		cout<<"ç›´çº¿AC : ";
 		lineout(xa,ya,xc,yc,fracoutmode);
-		cout<<"Ö±ÏßBC : ";
+		cout<<"ç›´çº¿BC : ";
 		lineout(xb,yb,xc,yc,fracoutmode);
 		cout<<"a = ";
 		fracout(a,fracoutmode*2,NULL,12);
@@ -294,19 +294,19 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		fracout(b,fracoutmode*2,NULL,12);
 		cout<<"\nc = ";
 		fracout(c,fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏA = "<<A<<"¡ã= ";
+		cout<<"\nâˆ A = "<<A<<"Â°= ";
 		fracout(A/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(A) = ";
 		fracout(sin(A/180*PI),fracoutmode*2,NULL,12);
 		cout<<"\ncos(A) = ";
 		fracout(cos(A/180*PI),fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏB = "<<B<<"¡ã= ";
+		cout<<"\nâˆ B = "<<B<<"Â°= ";
 		fracout(B/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(B) = ";
 		fracout(sin(B/180*PI),fracoutmode*2,NULL,12);
 		cout<<"\ncos(B) = ";
 		fracout(cos(B/180*PI),fracoutmode*2,NULL,12);
-		cout<<"\n¡ÏC = "<<C<<"¡ã= ";
+		cout<<"\nâˆ C = "<<C<<"Â°= ";
 		fracout(C/180*PI,fracoutmode*2,NULL,12);
 		cout<<"\nsin(C) = ";
 		fracout(sin(C/180*PI),fracoutmode*2,NULL,12);
@@ -355,87 +355,87 @@ void triangle(const bool degreemode,const bool fracoutmode,double *(mempoint[ ])
 		}
 	}
 	p=(a+b+c)/2;
-	cout<<"ÖÜ³¤ = ";
+	cout<<"å‘¨é•¿ = ";
 	fracout(p*2,fracoutmode*2,NULL,12);
 	cout<<endl;
 	s=sqrt(p*(p-a)*(p-b)*(p-c));
-	cout<<"Ãæ»ı = ";
+	cout<<"é¢ç§¯ = ";
 	fracout(s,fracoutmode*2,NULL,12);
 	cout<<endl;
 	if(selectmode==4)
 	{
-		cout<<"ÄÚĞÄ(I)µÄ×ø±ê : ";
+		cout<<"å†…å¿ƒ(I)çš„åæ ‡ : ";
 		pointout(xi,yi,fracoutmode);
-		cout<<"Ö±ÏßAI : ";
+		cout<<"ç›´çº¿AI : ";
 		lineout(xa,ya,xi,yi,fracoutmode);
-		cout<<"Ö±ÏßBI : ";
+		cout<<"ç›´çº¿BI : ";
 		lineout(xb,yb,xi,yi,fracoutmode);
-		cout<<"Ö±ÏßCI : ";
+		cout<<"ç›´çº¿CI : ";
 		lineout(xc,yc,xi,yi,fracoutmode);
 	}
 	r=s/p;
-	cout<<"ÄÚÇĞÔ²°ë¾¶(r) = ";
+	cout<<"å†…åˆ‡åœ†åŠå¾„(r) = ";
 	fracout(r,fracoutmode*2,NULL,12);
 	cout<<endl;
 	if(selectmode==4)
 	{
-		cout<<"ÍâĞÄ(O)µÄ×ø±ê : ";
+		cout<<"å¤–å¿ƒ(O)çš„åæ ‡ : ";
 		pointout(xo,yo,fracoutmode);
-		cout<<"Ö±ÏßAO : ";
+		cout<<"ç›´çº¿AO : ";
 		lineout(xa,ya,xo,yo,fracoutmode);
-		cout<<"Ö±ÏßBO : ";
+		cout<<"ç›´çº¿BO : ";
 		lineout(xb,yb,xo,yo,fracoutmode);
-		cout<<"Ö±ÏßCO : ";
+		cout<<"ç›´çº¿CO : ";
 		lineout(xc,yc,xo,yo,fracoutmode);
 	}
 	R=(a/sin(A/180*PI)+b/sin(B/180*PI)+c/sin(C/180*PI))/6;
-	cout<<"Íâ½ÓÔ²°ë¾¶(R) = ";
+	cout<<"å¤–æ¥åœ†åŠå¾„(R) = ";
 	fracout(R,fracoutmode*2,NULL,12);
 	cout<<endl;
 	if(selectmode==4)
 	{
-		cout<<"´¹ĞÄ(H)µÄ×ø±ê : ";
+		cout<<"å‚å¿ƒ(H)çš„åæ ‡ : ";
 		pointout(xh,yh,fracoutmode);
-		cout<<"Ö±ÏßAH : ";
+		cout<<"ç›´çº¿AH : ";
 		lineout(xa,ya,xh,yh,fracoutmode);
-		cout<<"Ö±ÏßBH : ";
+		cout<<"ç›´çº¿BH : ";
 		lineout(xb,yb,xh,yh,fracoutmode);
-		cout<<"Ö±ÏßCH : ";
+		cout<<"ç›´çº¿CH : ";
 		lineout(xc,yc,xh,yh,fracoutmode);
 	}
 	h=2*s/a;
-	cout<<"a±ßÉÏµÄ¸ß = ";
+	cout<<"aè¾¹ä¸Šçš„é«˜ = ";
 	fracout(h,fracoutmode*2,NULL,12);
 	cout<<endl;
 	h=2*s/b;
-	cout<<"b±ßÉÏµÄ¸ß = ";
+	cout<<"bè¾¹ä¸Šçš„é«˜ = ";
 	fracout(h,fracoutmode*2,NULL,12);
 	cout<<endl;
 	h=2*s/c;
-	cout<<"c±ßÉÏµÄ¸ß = ";
+	cout<<"cè¾¹ä¸Šçš„é«˜ = ";
 	fracout(h,fracoutmode*2,NULL,12);
 	cout<<endl;
 	if(selectmode==4)
 	{
-		cout<<"ÖØĞÄ(G)µÄ×ø±ê : ";
+		cout<<"é‡å¿ƒ(G)çš„åæ ‡ : ";
 		pointout(xg,yg,fracoutmode);
-		cout<<"Ö±ÏßAG : ";
+		cout<<"ç›´çº¿AG : ";
 		lineout(xa,ya,xg,yg,fracoutmode);
-		cout<<"Ö±ÏßBG : ";
+		cout<<"ç›´çº¿BG : ";
 		lineout(xb,yb,xg,yg,fracoutmode);
-		cout<<"Ö±ÏßCG : ";
+		cout<<"ç›´çº¿CG : ";
 		lineout(xc,yc,xg,yg,fracoutmode);
 	}
 	m=sqrt(2*b*b+2*c*c-a*a)/2;
-	cout<<"a±ßÉÏµÄÖĞÏß³¤ = ";
+	cout<<"aè¾¹ä¸Šçš„ä¸­çº¿é•¿ = ";
 	fracout(m,fracoutmode*2,NULL,12);
 	cout<<endl;
 	m=sqrt(2*a*a+2*c*c-b*b)/2;
-	cout<<"b±ßÉÏµÄÖĞÏß³¤ = ";
+	cout<<"bè¾¹ä¸Šçš„ä¸­çº¿é•¿ = ";
 	fracout(m,fracoutmode*2,NULL,12);
 	cout<<endl;
 	m=sqrt(2*b*b+2*a*a-c*c)/2;
-	cout<<"c±ßÉÏµÄÖĞÏß³¤ = ";
+	cout<<"cè¾¹ä¸Šçš„ä¸­çº¿é•¿ = ";
 	fracout(m,fracoutmode*2,NULL,12);
 	cout<<endl;
 }
@@ -444,15 +444,15 @@ inline short shape(const double a,const double b,const double c,const double A,c
 {
 	if(fabs(a*a+b*b-c*c)<1e-10||fabs(a*a+c*c-b*b)<1e-10||fabs(b*b+c*c-a*a)<1e-10||fabs(A-90)<1e-10||fabs(B-90)<1e-10||fabs(C-90)<1e-10)
 	{
-		cout<<"\n¡÷ABCÊÇÖ±½ÇÈı½ÇĞÎ\n";
+		cout<<"\nâ–³ABCæ˜¯ç›´è§’ä¸‰è§’å½¢\n";
 		return 1;
 	}
 	if(A>=90||B>=90||C>=90)
 	{
-		cout<<"\n¡÷ABCÊÇ¶Û½ÇÈı½ÇĞÎ\n";
+		cout<<"\nâ–³ABCæ˜¯é’è§’ä¸‰è§’å½¢\n";
 		return 3;
 	}
-	cout<<"\n¡÷ABCÊÇÈñ½ÇÈı½ÇĞÎ\n";
+	cout<<"\nâ–³ABCæ˜¯é”è§’ä¸‰è§’å½¢\n";
 	return 2;
 }
 /*----------------------------------------------------------------------------------------------------------*/
@@ -512,14 +512,14 @@ double inputangle(const char angle,double *(p[ ]),const bool degreemode)
 {
 	double r;
 	const double maxangle=degreemode?180.0:PI;
-	cout<<"ÊäÈë¡Ï"<<angle<<" : ( ";
-	if(degreemode)cout<<"½Ç¶ÈÖÆ";
-	else cout<<"»¡¶ÈÖÆ";
+	cout<<"è¾“å…¥âˆ "<<angle<<" : ( ";
+	if(degreemode)cout<<"è§’åº¦åˆ¶";
+	else cout<<"å¼§åº¦åˆ¶";
 	cout<<" )\n";
 	do
 	{
 		r=inputvardata(p,NULL,0);
-		if(r<=0||r>=maxangle)degreemode?cout<<"³ö´í£¡½Ç¶È±ØĞëÎªÕıÊıÇÒĞ¡ÓÚ180¡ã£¡ÖØĞÂÊäÈë :\n":cout<<"³ö´í£¡»¡¶È±ØĞëÎªÕıÊıÇÒĞ¡ÓÚ¦Ğ£¡ÖØĞÂÊäÈë :\n";
+		if(r<=0||r>=maxangle)degreemode?cout<<"å‡ºé”™ï¼è§’åº¦å¿…é¡»ä¸ºæ­£æ•°ä¸”å°äº180Â°ï¼é‡æ–°è¾“å…¥ :\n":cout<<"å‡ºé”™ï¼å¼§åº¦å¿…é¡»ä¸ºæ­£æ•°ä¸”å°äºÏ€ï¼é‡æ–°è¾“å…¥ :\n";
 	}while(r<=0||r>=maxangle);
 	if(!degreemode)return r*180/PI;
 	return r;
@@ -528,24 +528,23 @@ double inputangle(const char angle,double *(p[ ]),const bool degreemode)
 double inputside(const char side,double *(p[ ]))
 {
 	double r;
-	cout<<"ÊäÈë"<<side<<" :\n";
+	cout<<"è¾“å…¥"<<side<<" :\n";
 	do
 	{
 		r=inputvardata(p,NULL,0);
-		if(r<=0)cout<<"³ö´í£¡±ß³¤±ØĞëÎªÕıÊı£¡ÖØĞÂÊäÈë :\n";
+		if(r<=0)cout<<"å‡ºé”™ï¼è¾¹é•¿å¿…é¡»ä¸ºæ­£æ•°ï¼é‡æ–°è¾“å…¥ :\n";
 	}while(r<=0);
 	return r;
 }
 /*----------------------------------------------------------------------------------------------------------*/
 void help()
 {
-	cout<<"\nCount Fever 1.08 ÖĞÎÄ°æ\n";
-	cout<<"×÷Õß£º±±¾©´óÑ§ĞÅÏ¢¿ÆÑ§¼¼ÊõÑ§Ôº ÌÆ×ÓºÀ\n\n";
+	cout<<"\nCount Fever 1.08 ä¸­æ–‡ç‰ˆ\n";
 	ifstream infile;
 	infile.open("help.txt",ios::in);
 	if(!infile)
 	{
-		cerr<<"³ÌĞòÄ¿Â¼ÖĞ²»´æÔÚËµÃ÷Êé»òÎÄ¼şÎŞ·¨´ò¿ª\n";
+		cerr<<"ç¨‹åºç›®å½•ä¸­ä¸å­˜åœ¨è¯´æ˜ä¹¦æˆ–æ–‡ä»¶æ— æ³•æ‰“å¼€\n";
 		return;
 	}
 }
